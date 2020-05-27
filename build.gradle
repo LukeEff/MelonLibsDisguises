@@ -1,0 +1,58 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'com.github.johnrengelman.shadow' version '5.2.0' //Shadow jar
+
+    id "com.jfrog.artifactory" version "3.1.1"
+}
+
+println 'Compiling LibsDisguises via Gradle ver. ' + gradle.gradleVersion
+
+sourceCompatibility = '1.7'
+ext.spigotVersion = '1.8.8-R0.1-SNAPSHOT'
+
+ext.disguisesVersion = '8.6.8'
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+
+    maven {
+        name 'Spigot'
+        url 'https://hub.spigotmc.org/nexus/content/groups/public/'
+    }
+
+    maven {
+        url 'https://oss.sonatype.org/content/groups/public/'
+    }
+
+    maven {
+        name 'dmulloy2-repo'
+        url 'http://repo.dmulloy2.net/content/groups/public/'
+    }
+
+    flatDir {
+        dir 'libs'
+    }
+}
+
+dependencies {
+    compileOnly group: 'com.comphenix.protocol', name: 'ProtocolLib', version: '4.5.0' //ProtocolLib
+    compileOnly group: 'org.spigotmc', name: 'spigot', version: '1.8.8-R0.1-SNAPSHOT' //Spigot NMS
+    compileOnly 'org.projectlombok:lombok:1.18.8' //Lombok
+    annotationProcessor 'org.projectlombok:lombok:1.18.8' //Lombok
+    
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+}
+
+shadowJar {
+
+    destinationDirectory = file(defaultExportTarget)
+    archiveClassifier.set(null)
+
+    manifest {
+        attributes 'Main-Class': 'me.libraryaddict.disguise.LibsDisguises'
+    }
+
+}
