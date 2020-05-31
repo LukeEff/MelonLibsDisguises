@@ -34,7 +34,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok:1.18.8' //Lombok
     testCompile group: 'junit', name: 'junit', version: '4.10'
 }
-/*
+
 shadowJar {
 
     destinationDirectory = file(defaultExportTarget)
@@ -44,4 +44,4 @@ shadowJar {
         attributes 'Main-Class': 'me.libraryaddict.disguise.LibsDisguises'
     }
 
-}*/
+}
