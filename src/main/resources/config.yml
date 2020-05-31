@@ -1,5 +1,5 @@
 # Shall I notify people of a LibsDisguises update?
-NotifyUpdate: true
+NotifyUpdate: false
 # Whats the permission to get the notification?
 Permission: 'libsdisguises.update'
 # Whats the max size allowed for command disguiseradius
@@ -8,7 +8,7 @@ DisguiseRadiusMax: 50
 UndisguiseRadiusMax: 50
 # Shall the players view their disguises?
 # Best used when viewing yourself in 3rd person
-ViewSelfDisguises: true
+ViewSelfDisguises: false
 # Shall I disguise the sounds?
 # This turns your damage sound into a MOOOO
 DisguiseSounds: true
